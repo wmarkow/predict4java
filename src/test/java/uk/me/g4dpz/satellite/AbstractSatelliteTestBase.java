@@ -39,7 +39,7 @@ public abstract class AbstractSatelliteTestBase {
 
 	private static final String TLE_AO51_1 = "1 28375U 04025K   09105.66391970  .00000003  00000-0  13761-4 0  3643";
 	protected AbstractSatelliteTestBase() {
-
+        TZ_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
 
     static final GroundStationPosition GROUND_STATION =
