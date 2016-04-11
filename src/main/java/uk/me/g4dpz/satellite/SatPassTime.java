@@ -40,6 +40,8 @@ package uk.me.g4dpz.satellite;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class SatPassTime implements Serializable {
 
@@ -56,8 +58,12 @@ public class SatPassTime implements Serializable {
     private static final String NEW_LINE = "\n";
     private static final String DEG_NL = " deg.\n";
 
-    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("h:mm a");
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMMMMM d, yyyy");
+    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("h:mm a", Locale.UK);
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMMMMM d, yyyy", Locale.UK);
+
+    static {
+        TIME_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
+    }
 
     public SatPassTime(final Date startTime, final Date endTime, final String polePassed,
             final int aos, final int los, final double maxEl) {
@@ -143,9 +149,9 @@ public class SatPassTime implements Serializable {
                 + NEW_LINE
                 +
                 // "End Time: " + mTimeFormatter.format(endDate_time) + "\n" +
-                String.format("Duration: %4.1f min.\n", duration)
+                String.format(Locale.UK, "Duration: %4.1f min.\n", duration)
                 + "AOS Azimuth: " + aos + DEG_NL
-                + String.format("Max Elevation: %4.1f deg.\n", maxEl)
+                + String.format(Locale.UK, "Max Elevation: %4.1f deg.\n", maxEl)
                 + "LOS Azimuth: " + los + " deg.";
     }
 }
