@@ -26,6 +26,8 @@
  */
 package uk.me.g4dpz.satellite;
 
+import java.util.Locale;
+
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -93,16 +95,16 @@ public class DeepSpaceSatelliteTest extends AbstractSatelliteTestBase {
 
         final SatPos satellitePosition = satellite.getPosition(GROUND_STATION, timeNow.toDate());
 
-        Assert.assertEquals("2.2579325", String.format(FORMAT_9_7F, satellitePosition.getAzimuth()));
-        Assert.assertEquals("0.4144053", String.format(FORMAT_9_7F, satellitePosition.getElevation()));
-        Assert.assertEquals("0.7091175", String.format(FORMAT_9_7F, satellitePosition.getLongitude()));
-        Assert.assertEquals("0.0442970", String.format(FORMAT_9_7F, satellitePosition.getLatitude()));
-        Assert.assertEquals("58847.2042542", String.format(FORMAT_10_7F, satellitePosition.getAltitude()));
-        Assert.assertEquals("3.2039351", String.format(FORMAT_9_7F, satellitePosition.getPhase()));
-        Assert.assertEquals("62390.2433539", String.format(FORMAT_9_7F, satellitePosition.getRange()));
-        Assert.assertEquals("-0.2187132", String.format(FORMAT_9_7F, satellitePosition.getRangeRate()));
-        Assert.assertEquals("0.6810134", String.format(FORMAT_9_7F, satellitePosition.getTheta()));
-        Assert.assertEquals("-2.7759541", String.format(FORMAT_9_7F, satellitePosition.getEclipseDepth()));
+        Assert.assertEquals("2.2579325", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getAzimuth()));
+        Assert.assertEquals("0.4144053", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getElevation()));
+        Assert.assertEquals("0.7091175", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getLongitude()));
+        Assert.assertEquals("0.0442970", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getLatitude()));
+        Assert.assertEquals("58847.2042542", String.format(Locale.UK, FORMAT_10_7F, satellitePosition.getAltitude()));
+        Assert.assertEquals("3.2039351", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getPhase()));
+        Assert.assertEquals("62390.2433539", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getRange()));
+        Assert.assertEquals("-0.2187132", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getRangeRate()));
+        Assert.assertEquals("0.6810134", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getTheta()));
+        Assert.assertEquals("-2.7759541", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getEclipseDepth()));
         Assert.assertFalse(satellitePosition.isEclipsed());
         Assert.assertTrue(satellite.willBeSeen(GROUND_STATION));
 
@@ -122,16 +124,16 @@ public class DeepSpaceSatelliteTest extends AbstractSatelliteTestBase {
         final SatPos satellitePosition = satellite.getPosition(GROUND_STATION, timeNow.toDate());
 
         Assert.assertTrue(tle.isDeepspace());
-        Assert.assertEquals("5.7530820", String.format(FORMAT_9_7F, satellitePosition.getAzimuth()));
-        Assert.assertEquals("-0.8368869", String.format(FORMAT_9_7F, satellitePosition.getElevation()));
-        Assert.assertEquals("3.4946919", String.format(FORMAT_9_7F, satellitePosition.getLongitude()));
-        Assert.assertEquals("-0.1440008", String.format(FORMAT_9_7F, satellitePosition.getLatitude()));
-        Assert.assertEquals("36031.8182912", String.format(FORMAT_10_7F, satellitePosition.getAltitude()));
-        Assert.assertEquals("0.5377382", String.format(FORMAT_9_7F, satellitePosition.getPhase()));
-        Assert.assertEquals("46934.3153284", String.format(FORMAT_9_7F, satellitePosition.getRange()));
-        Assert.assertEquals("0.0271561", String.format(FORMAT_9_7F, satellitePosition.getRangeRate()));
-        Assert.assertEquals("-1.1369975", String.format(FORMAT_9_7F, satellitePosition.getTheta()));
-        Assert.assertEquals("-2.5674344", String.format(FORMAT_9_7F, satellitePosition.getEclipseDepth()));
+        Assert.assertEquals("5.7530820", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getAzimuth()));
+        Assert.assertEquals("-0.8368869", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getElevation()));
+        Assert.assertEquals("3.4946919", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getLongitude()));
+        Assert.assertEquals("-0.1440008", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getLatitude()));
+        Assert.assertEquals("36031.8182912", String.format(Locale.UK, FORMAT_10_7F, satellitePosition.getAltitude()));
+        Assert.assertEquals("0.5377382", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getPhase()));
+        Assert.assertEquals("46934.3153284", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getRange()));
+        Assert.assertEquals("0.0271561", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getRangeRate()));
+        Assert.assertEquals("-1.1369975", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getTheta()));
+        Assert.assertEquals("-2.5674344", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getEclipseDepth()));
         Assert.assertFalse(satellitePosition.isEclipsed());
         Assert.assertTrue(satellite.willBeSeen(GROUND_STATION));
     }
@@ -148,16 +150,16 @@ public class DeepSpaceSatelliteTest extends AbstractSatelliteTestBase {
         final SatPos satellitePosition = satellite.getPosition(GROUND_STATION, timeNow.toDate());
 
         Assert.assertTrue(tle.isDeepspace());
-        Assert.assertEquals("6.2095948", String.format(FORMAT_9_7F, satellitePosition.getAzimuth()));
-        Assert.assertEquals("0.0572862", String.format(FORMAT_9_7F, satellitePosition.getElevation()));
-        Assert.assertEquals("3.2171857", String.format(FORMAT_9_7F, satellitePosition.getLongitude()));
-        Assert.assertEquals("0.8635892", String.format(FORMAT_9_7F, satellitePosition.getLatitude()));
-        Assert.assertEquals("35280.747", String.format(FORMAT_9_3F, satellitePosition.getAltitude()));
-        Assert.assertEquals("2.0315668", String.format(FORMAT_9_7F, satellitePosition.getPhase()));
-        Assert.assertEquals("40814.880", String.format(FORMAT_9_3F, satellitePosition.getRange()));
-        Assert.assertEquals("0.9164450", String.format(FORMAT_9_7F, satellitePosition.getRangeRate()));
-        Assert.assertEquals("-1.4145037", String.format(FORMAT_9_7F, satellitePosition.getTheta()));
-        Assert.assertEquals("-1.7199331", String.format(FORMAT_9_7F, satellitePosition.getEclipseDepth()));
+        Assert.assertEquals("6.2095948", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getAzimuth()));
+        Assert.assertEquals("0.0572862", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getElevation()));
+        Assert.assertEquals("3.2171857", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getLongitude()));
+        Assert.assertEquals("0.8635892", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getLatitude()));
+        Assert.assertEquals("35280.747", String.format(Locale.UK, FORMAT_9_3F, satellitePosition.getAltitude()));
+        Assert.assertEquals("2.0315668", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getPhase()));
+        Assert.assertEquals("40814.880", String.format(Locale.UK, FORMAT_9_3F, satellitePosition.getRange()));
+        Assert.assertEquals("0.9164450", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getRangeRate()));
+        Assert.assertEquals("-1.4145037", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getTheta()));
+        Assert.assertEquals("-1.7199331", String.format(Locale.UK, FORMAT_9_7F, satellitePosition.getEclipseDepth()));
         Assert.assertFalse(satellitePosition.isEclipsed());
         Assert.assertTrue(satellite.willBeSeen(GROUND_STATION));
     }
