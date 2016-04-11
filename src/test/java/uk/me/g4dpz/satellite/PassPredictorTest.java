@@ -27,6 +27,7 @@
 package uk.me.g4dpz.satellite;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.joda.time.DateTime;
 import org.junit.After;
@@ -136,7 +137,7 @@ public class PassPredictorTest extends AbstractSatelliteTestBase {
             Assert.assertEquals(NONE, passTime.getPolePassed());
             Assert.assertEquals(52, passTime.getAosAzimuth());
             Assert.assertEquals(84, passTime.getLosAzimuth());
-            Assert.assertEquals("0.9", String.format("%3.1f", passTime.getMaxEl()));
+            Assert.assertEquals("0.9", String.format(Locale.UK, "%3.1f", passTime.getMaxEl()));
             Assert.assertEquals(Long.valueOf(436802379L),
                     passPredictor.getDownlinkFreq(436800000L, passTime.getStartTime()));
             Assert.assertEquals(Long.valueOf(145800719L),
@@ -156,7 +157,7 @@ public class PassPredictorTest extends AbstractSatelliteTestBase {
             Assert.assertEquals(NORTH, passTime.getPolePassed());
             Assert.assertEquals(11, passTime.getAosAzimuth());
             Assert.assertEquals(207, passTime.getLosAzimuth());
-            Assert.assertEquals("62.19", String.format("%5.2f", passTime.getMaxEl()));
+            Assert.assertEquals("62.19", String.format(Locale.UK, "%5.2f", passTime.getMaxEl()));
 
             passTime = passPredictor.nextSatPass(passTime.getStartTime());
             Assert.assertEquals("2009-01-05T09:22:05+0000", TZ_FORMAT.format(passTime.getStartTime()));
