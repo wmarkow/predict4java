@@ -27,6 +27,7 @@
 package uk.me.g4dpz.satellite;
 
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.TimeZone;
 
 /**
@@ -39,7 +40,9 @@ public abstract class AbstractSatelliteTestBase {
 
 	private static final String TLE_AO51_1 = "1 28375U 04025K   09105.66391970  .00000003  00000-0  13761-4 0  3643";
 	protected AbstractSatelliteTestBase() {
-
+	      Locale.setDefault(Locale.UK);
+	      TimeZone.setDefault(TZ);
+	      TZ_FORMAT.setTimeZone(TZ);
     }
 
     static final GroundStationPosition GROUND_STATION =

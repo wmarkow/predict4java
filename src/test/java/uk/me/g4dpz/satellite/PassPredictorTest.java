@@ -54,6 +54,7 @@ public class PassPredictorTest extends AbstractSatelliteTestBase {
     private static final String INVALID_TLE_EXCEPTION_WAS_NOT_THROWN = "InvalidTleException was not thrown";
 
     public PassPredictorTest() {
+      super();
     }
 
     /**
